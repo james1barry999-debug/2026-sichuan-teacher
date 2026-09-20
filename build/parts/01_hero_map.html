@@ -1,0 +1,204 @@
+<div class="toast" id="toast"></div>
+<nav class="top" id="top">
+  <div class="top-in">
+    <div class="brand">心理学12 · 学习小镇<small>学习分类 + 四大流派 + 行为主义（华生 / 桑代克 / 巴甫洛夫）</small></div>
+    <div class="stations" id="navlinks">
+      <a href="#map">🗺 地图</a>
+      <a href="#s1" data-st="s1">1 分类局</a>
+      <a href="#s2" data-st="s2">2 十字路口</a>
+      <a href="#s3" data-st="s3">3 大院门口</a>
+      <a href="#s4" data-st="s4">4 猫房</a>
+      <a href="#s5" data-st="s5">5 狗房</a>
+      <a href="#s6" data-st="s6">6 溯源桥</a>
+      <a href="#recite">📝 合上书复述</a>
+      <a href="#arena">⚔️ 三天后再来</a>
+      <a href="#wrong">📕 错题本</a>
+    </div>
+    <div class="tools">
+      <button id="btn-size" title="切换字号">A+</button>
+      <button id="btn-theme" title="切换深浅色">◐</button>
+    </div>
+  </div>
+  <div class="pbar"><i id="pbar"></i></div>
+</nav>
+
+<div class="wrap">
+<header class="hero glass" id="hero">
+  <div class="kicker">2026 下半年 · 四川教师公招 · 教育心理学</div>
+  <h1>心理学12 <span>学习小镇</span><br>一幅画，学透「学习分类 + 行为主义」</h1>
+  <p class="lede">
+    这一讲彤彤老师讲了 2 小时 42 分：<b>学习有几种</b>、<b>四大流派怎么分</b>、<b>行为主义前两位大佬</b>（桑代克的猫、巴甫洛夫的狗）。
+    我把它们全部搬进了一座小镇：<b>6 个站点</b>，从左走到右，每一站只回答一个关于「学习」的问题。
+    每张卡先<b>说人话</b>，再<b>打比方</b>，最后才告诉你考试要写哪个词。走完全镇，画面留在脑子里，做题时顺着画面找就行。
+  </p>
+  <div class="chips">
+    <span class="chip">6 站 · 34 张知识卡</span>
+    <span class="chip o">41 道课堂真题 · 全部附老师推导</span>
+    <span class="chip g">老师手写板书 已并入卡片</span>
+    <span class="chip">手机可看 · 深色模式 · 进度自动保存</span>
+  </div>
+</header>
+
+<section class="map glass" id="map">
+  <h2>🗺 先看地图：整讲就是这一幅画</h2>
+  <p class="sub">点任何一栋房子，直接跳过去。橙色虚线是「金线」—— 从头到尾贯穿全讲的一个技巧：<b>先分清谁是刺激（S）、谁是反应（R），再看谁在前</b>。</p>
+  <svg viewBox="0 0 1200 660" role="img" aria-label="学习小镇地图">
+    <defs>
+      <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E8752A"/></marker>
+      <marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F3A5F"/></marker>
+      <marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#34C759"/></marker>
+    </defs>
+    <!-- 金线 -->
+    <path d="M180 335 C180 400 300 205 360 205 L 620 205 L 640 205 C 700 205 690 170 740 170 L 950 170 L 1060 170 L 1060 300 L 1060 470 L 760 470" fill="none" stroke="#E8752A" stroke-width="4" stroke-dasharray="10 9" opacity=".85"/>
+    <!-- 起点/终点 -->
+    <circle cx="180" cy="335" r="12" fill="#E8752A"/><text x="180" y="340" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">起</text>
+    <circle cx="760" cy="470" r="12" fill="#E8752A"/><text x="760" y="475" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">终</text>
+
+    <!-- ===== 站1 分类局 ===== -->
+    <a class="mapnode" href="#s1">
+      <rect x="30" y="80" width="300" height="250" rx="22" class="box" stroke="#1F3A5F" stroke-width="3"/>
+      <rect x="30" y="80" width="300" height="46" rx="22" fill="#1F3A5F"/>
+      <rect x="30" y="104" width="300" height="22" fill="#1F3A5F"/>
+      <text x="180" y="112" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">① 分类局 · 学习有几种？</text>
+      <!-- 奥苏贝尔两把尺 -->
+      <rect x="48" y="142" width="128" height="80" rx="12" fill="#FFF2E8"/>
+      <text x="112" y="166" text-anchor="middle" font-size="16" font-weight="800" fill="#E8752A">奥苏贝尔 · 两把尺</text>
+      <line x1="60" y1="184" x2="164" y2="184" stroke="#E8752A" stroke-width="5" stroke-linecap="round"/>
+      <line x1="60" y1="204" x2="164" y2="204" stroke="#1F3A5F" stroke-width="5" stroke-linecap="round"/>
+      <text x="112" y="180" text-anchor="middle" font-size="11" class="t2">谁给的？</text>
+      <text x="112" y="200" text-anchor="middle" font-size="11" class="t2">接得上吗？</text>
+      <!-- 加涅货架+台阶 -->
+      <rect x="186" y="142" width="128" height="80" rx="12" fill="rgba(0,122,255,.10)"/>
+      <text x="250" y="166" text-anchor="middle" font-size="16" font-weight="800" fill="#1F3A5F">加涅 · 架子+台阶</text>
+      <g stroke="#1F3A5F" stroke-width="3"><line x1="198" y1="182" x2="240" y2="182"/><line x1="198" y1="194" x2="240" y2="194"/><line x1="198" y1="206" x2="240" y2="206"/></g>
+      <path d="M252 212 h10 v-8 h10 v-8 h10 v-8 h10 v-8 h10" fill="none" stroke="#E8752A" stroke-width="3"/>
+      <!-- 阿瑟雷伯 开关 -->
+      <rect x="48" y="234" width="128" height="76" rx="12" fill="rgba(175,82,222,.10)"/>
+      <text x="112" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#AF52DE">阿瑟雷伯 · 开关</text>
+      <rect x="86" y="272" width="52" height="22" rx="11" fill="#AF52DE"/><circle cx="127" cy="283" r="9" fill="#fff"/>
+      <text x="112" y="306" text-anchor="middle" font-size="11" class="t2">知不知道自己在学</text>
+      <!-- 我国学者 -->
+      <rect x="186" y="234" width="128" height="76" rx="12" fill="rgba(52,199,89,.12)"/>
+      <text x="250" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#1a8f45">冯忠良 · 潘菽</text>
+      <text x="250" y="282" text-anchor="middle" font-size="12" class="t2">知识 · 技能 · +额外那个</text>
+      <text x="250" y="300" text-anchor="middle" font-size="11" class="t2">（四川还没考过）</text>
+    </a>
+
+    <!-- ===== 站2 十字路口 ===== -->
+    <a class="mapnode" href="#s2">
+      <rect x="360" y="80" width="250" height="250" rx="22" class="box" stroke="#5856D6" stroke-width="3"/>
+      <rect x="360" y="80" width="250" height="46" rx="22" fill="#5856D6"/><rect x="360" y="104" width="250" height="22" fill="#5856D6"/>
+      <text x="485" y="112" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">② 十字路口 · 四条路</text>
+      <line x1="485" y1="140" x2="485" y2="318" stroke="var(--svg-grid)" stroke-width="16"/>
+      <line x1="372" y1="230" x2="598" y2="230" stroke="var(--svg-grid)" stroke-width="16"/>
+      <g font-size="14" font-weight="800">
+        <rect x="376" y="146" width="98" height="56" rx="10" fill="#E8752A"/><text x="425" y="168" text-anchor="middle" fill="#fff">行为主义</text><text x="425" y="190" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">看外面的动作</text>
+        <rect x="496" y="146" width="98" height="56" rx="10" fill="#007AFF"/><text x="545" y="168" text-anchor="middle" fill="#fff">认知主义</text><text x="545" y="190" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">看脑子加工</text>
+        <rect x="376" y="256" width="98" height="56" rx="10" fill="#30B0C7"/><text x="425" y="278" text-anchor="middle" fill="#fff">建构主义</text><text x="425" y="300" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">人和环境互动</text>
+        <rect x="496" y="256" width="98" height="56" rx="10" fill="#FF2D55"/><text x="545" y="278" text-anchor="middle" fill="#fff">人本主义</text><text x="545" y="300" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">看情感 · 人性善</text>
+      </g>
+    </a>
+
+    <!-- ===== 行为主义大院 ===== -->
+    <rect x="630" y="60" width="545" height="385" rx="26" fill="none" stroke="#E8752A" stroke-width="4" stroke-dasharray="14 8"/>
+    <text x="900" y="50" text-anchor="middle" font-size="20" font-weight="800" fill="#E8752A">行为主义大院 · 考频 76 次 · 只看得见的行为，S 和 R 怎么连</text>
+    <!-- 站3 门口 -->
+    <a class="mapnode" href="#s3">
+      <rect x="642" y="120" width="90" height="120" rx="14" class="box" stroke="#E8752A" stroke-width="3"/>
+      <rect x="642" y="120" width="90" height="34" rx="14" fill="#E8752A"/><rect x="642" y="140" width="90" height="14" fill="#E8752A"/>
+      <text x="687" y="144" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">③ 门口</text>
+      <text x="687" y="178" text-anchor="middle" font-size="15" font-weight="800" class="t">华生</text>
+      <text x="687" y="198" text-anchor="middle" font-size="12" class="t2">创始人</text>
+      <text x="687" y="216" text-anchor="middle" font-size="12" class="t2">小阿尔伯特</text>
+      <text x="687" y="232" text-anchor="middle" font-size="12" class="t2">双料第一</text>
+    </a>
+    <!-- 站4 猫房 -->
+    <a class="mapnode" href="#s4">
+      <rect x="750" y="90" width="195" height="180" rx="18" class="box" stroke="#A2845E" stroke-width="3"/>
+      <rect x="750" y="90" width="195" height="40" rx="18" fill="#A2845E"/><rect x="750" y="112" width="195" height="18" fill="#A2845E"/>
+      <text x="847" y="118" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">④ 猫房 · 桑代克</text>
+      <!-- 笼子 -->
+      <rect x="770" y="146" width="70" height="60" rx="6" fill="none" stroke="#A2845E" stroke-width="3"/>
+      <g stroke="#A2845E" stroke-width="2"><line x1="784" y1="146" x2="784" y2="206"/><line x1="798" y1="146" x2="798" y2="206"/><line x1="812" y1="146" x2="812" y2="206"/><line x1="826" y1="146" x2="826" y2="206"/></g>
+      <ellipse cx="805" cy="186" rx="16" ry="10" fill="#A2845E"/><circle cx="820" cy="176" r="7" fill="#A2845E"/>
+      <text x="866" y="160" font-size="13" font-weight="800" class="t">饿猫 · 试误</text>
+      <text x="866" y="180" font-size="12" class="t2">按杠杆 → 得鱼</text>
+      <text x="866" y="198" font-size="12" fill="#E8752A" font-weight="800">R → S（反应在前）</text>
+      <rect x="766" y="220" width="164" height="36" rx="10" fill="#FFF2E8"/>
+      <text x="848" y="243" text-anchor="middle" font-size="13" font-weight="800" fill="#E8752A">准备律 · 练习律 · 效果律★</text>
+    </a>
+    <!-- 站5 狗房 -->
+    <a class="mapnode" href="#s5">
+      <rect x="962" y="90" width="195" height="180" rx="18" class="box" stroke="#007AFF" stroke-width="3"/>
+      <rect x="962" y="90" width="195" height="40" rx="18" fill="#007AFF"/><rect x="962" y="112" width="195" height="18" fill="#007AFF"/>
+      <text x="1059" y="118" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">⑤ 狗房 · 巴甫洛夫</text>
+      <!-- 铃铛 灯 狗 -->
+      <path d="M990 150 q0 -18 14 -18 q14 0 14 18 v10 h-28z" fill="#FFCC00"/><circle cx="1004" cy="164" r="4" fill="#A2845E"/>
+      <circle cx="1040" cy="146" r="10" fill="#34C759"/><rect x="1035" y="156" width="10" height="8" fill="#34C759"/>
+      <ellipse cx="1090" cy="180" rx="22" ry="14" fill="#E8B96A"/><circle cx="1112" cy="170" r="10" fill="#E8B96A"/>
+      <path d="M1118 182 q4 10 -2 16" stroke="#007AFF" stroke-width="3" fill="none"/>
+      <text x="1010" y="196" font-size="12" font-weight="800" class="t">铃声蹭食物</text>
+      <text x="1010" y="212" font-size="12" fill="#007AFF" font-weight="800">S → R（刺激在前）</text>
+      <rect x="976" y="220" width="166" height="36" rx="10" fill="rgba(0,122,255,.10)"/>
+      <text x="1059" y="243" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3A5F">2 反射 · 2 信号系统 · 4 规律</text>
+    </a>
+    <!-- 上锁的门 -->
+    <rect x="750" y="296" width="407" height="128" rx="16" fill="none" stroke="var(--svg-grid)" stroke-width="3" stroke-dasharray="6 6"/>
+    <text x="953" y="330" text-anchor="middle" font-size="16" font-weight="800" class="t2">🔒 斯金纳 · 班杜拉 —— 老师说「明天讲」</text>
+    <text x="953" y="356" text-anchor="middle" font-size="13" class="t2">本讲只闪过一页斯金纳箱，没讲，所以本手册不编内容。</text>
+    <text x="953" y="380" text-anchor="middle" font-size="13" class="t2">认知 · 建构 · 人本 三条路也在下一讲。</text>
+    <text x="953" y="406" text-anchor="middle" font-size="13" fill="#E8752A" font-weight="800">先把这一讲吃透 —— 老师原话：拿下基础就得到了天下。</text>
+
+    <!-- ===== 站6 溯源桥 ===== -->
+    <a class="mapnode" href="#s6">
+      <rect x="360" y="470" width="815" height="150" rx="22" class="box" stroke="#34C759" stroke-width="3"/>
+      <rect x="360" y="470" width="815" height="42" rx="22" fill="#34C759"/><rect x="360" y="492" width="815" height="20" fill="#34C759"/>
+      <text x="767" y="499" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">⑥ 溯源桥 · 两种连法，方向相反，实质相同</text>
+      <rect x="390" y="530" width="360" height="70" rx="14" fill="rgba(0,122,255,.10)"/>
+      <text x="570" y="556" text-anchor="middle" font-size="16" font-weight="800" fill="#1F3A5F">经典性（巴甫洛夫）</text>
+      <text x="570" y="584" text-anchor="middle" font-size="18" font-weight="800" fill="#007AFF">S → R   先给刺激，才有反应</text>
+      <rect x="784" y="530" width="360" height="70" rx="14" fill="#FFF2E8"/>
+      <text x="964" y="556" text-anchor="middle" font-size="16" font-weight="800" fill="#1F3A5F">操作性（桑代克 · 斯金纳）</text>
+      <text x="964" y="584" text-anchor="middle" font-size="18" font-weight="800" fill="#E8752A">R → S   先做动作，再得结果</text>
+      <text x="767" y="570" text-anchor="middle" font-size="14" font-weight="800" class="t2">实质都是</text><text x="767" y="590" text-anchor="middle" font-size="14" font-weight="800" class="t2">S-R 联结</text>
+    </a>
+
+    <!-- ===== 金线说明 ===== -->
+    <rect x="30" y="360" width="300" height="260" rx="22" fill="#FFF2E8" stroke="#E8752A" stroke-width="3"/>
+    <text x="180" y="392" text-anchor="middle" font-size="20" font-weight="800" fill="#E8752A">🧵 金线：全讲只用一招</text>
+    <circle cx="80" cy="432" r="18" fill="#007AFF"/><text x="80" y="438" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">S</text>
+    <text x="108" y="428" font-size="15" font-weight="800" fill="#1d1d1f">刺激 = 外界给的</text><text x="108" y="448" font-size="13" fill="#5a606b">铃声、食物、老师的表扬、进考场</text>
+    <circle cx="80" cy="488" r="18" fill="#E8752A"/><text x="80" y="494" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">R</text>
+    <text x="108" y="484" font-size="15" font-weight="800" fill="#1d1d1f">反应 = 个体做的</text><text x="108" y="504" font-size="13" fill="#5a606b">流口水、按杠杆、焦虑、跑过去</text>
+    <line x1="50" y1="524" x2="310" y2="524" stroke="#E8752A" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="60" y="552" font-size="14" font-weight="800" fill="#1d1d1f">① 先分谁是 S、谁是 R</text>
+    <text x="60" y="576" font-size="14" font-weight="800" fill="#1d1d1f">② 再看谁在前（S→R 还是 R→S）</text>
+    <text x="60" y="600" font-size="14" font-weight="800" fill="#1d1d1f">③ 再问：先天就会？还是后天学的？</text>
+  </svg>
+  <div class="legend">
+    <span style="--c:#1F3A5F">深蓝 = 站点名 / 术语</span>
+    <span style="--c:#E8752A">橙 = 说人话 / 金线 / 反应 R</span>
+    <span style="--c:#007AFF">蓝 = 刺激 S / 巴甫洛夫</span>
+    <span style="--c:#A2845E">棕 = 桑代克的猫</span>
+    <span style="--c:#34C759">绿 = 溯源桥</span>
+  </div>
+</section>
+
+<section class="tour glass" id="tour">
+  <h2>⏱ 再花 3 分钟：一口气走完全镇（12 句人话）</h2>
+  <p class="sub">这 12 句就是整讲的骨架。现在看不懂没关系，走完六站回来再读一遍，你会发现每句都能自己讲出来。</p>
+  <ol>
+    <li><div><b>什么叫学习？</b>靠经验或练习，让「行为」或「行为潜能」发生比较持久的变化。膝跳反射、疲劳、暗适应都不算；态度悄悄变了也算（只是看不见）。</div></li>
+    <li><div><b>奥苏贝尔用两把尺子量学习：</b>① 谁给的？别人直接给→<b>接受</b>，自己琢磨→<b>发现</b>；② 接得上你已有的东西吗？接得上→<b>有意义</b>，接不上→<b>机械</b>。两把尺子互不影响，组合出四格，没有高低。</div></li>
+    <li><div><b>加涅分两次：</b>按「学完得到什么」分五个货架（言语信息/智慧技能/认知策略/态度/动作技能，无高低）；按「难度」分八级台阶（信号→刺激反应→连锁→言语联想→辨别→概念→规则→问题解决，从低到高）。</div></li>
+    <li><div><b>阿瑟雷伯只问一句：</b>你知道自己在学吗？不知不觉→<b>内隐</b>；有意识用力→<b>外显</b>。我国学者冯忠良、潘菽只记「额外那个」。</div></li>
+    <li><div><b>四大流派怎么解释「学习是怎么发生的」：</b>行为看外面动作、认知看脑子加工、建构看人和环境互动、人本看情感。口诀：桑巴死板 · 苛曼不输加涅 · 健脾胃度 · 罗马人。</div></li>
+    <li><div><b>行为主义大院的门牌：</b>创始人<b>华生</b>（小阿尔伯特实验）；只研究看得见的<b>外显行为</b>，用<b>实验法</b>；核心一句话：<b>刺激和反应连起来（S-R）</b>；地位「第一革命、第一势力」。</div></li>
+    <li><div><b>金线（全讲只用这一招）：</b>刺激 S 是<b>外界给的</b>，反应 R 是<b>个体做的</b>。拿到题先把 S、R 分开，再看谁在前，再问先天还是后天。</div></li>
+    <li><div><b>桑代克的猫：</b>饿猫乱抓乱咬，偶然按到杠杆吃到鱼，试多了错就少了——学习 = 形成 S-R 联结，靠<b>试误</b>建立。猫是先按杠杆再得鱼：<b>R→S</b>。</div></li>
+    <li><div><b>试误受三条公律支配：</b><b>准备律</b>（想不想学，动机）、<b>练习律</b>（练不练，用进废退）、<b>效果律</b>（有没有反馈，最重要；另两条是它的附律）。</div></li>
+    <li><div><b>巴甫洛夫的狗：</b>铃声本来没用（中性刺激），反复蹭着食物一起出现，最后光听铃就流口水——铃声变成<b>条件刺激</b>。先给刺激再有反应：<b>S→R</b>。铃声再蹭灯光→灯光也有用了，这叫<b>高级（二级）条件作用</b>。</div></li>
+    <li><div><b>狗房三条口诀：</b>建立顺序「要么先中性，要么和中性同时」；一级还是高级看「跟谁结合」；第一还是第二信号系统看「有没有语言」（动物永远只能第一）。四个规律：获得（无→有）、消退（有→无）、泛化（分不清）、分化（分得清）。</div></li>
+    <li><div><b>溯源桥：</b>巴甫洛夫是经典性（S→R），桑代克和斯金纳是操作性（R→S）；两者<b>实质相同</b>（都是 S-R 联结），<b>建立过程不同</b>（方向相反）。斯金纳、班杜拉、认知、建构、人本——老师说「明天讲」。</div></li>
+  </ol>
+</section>

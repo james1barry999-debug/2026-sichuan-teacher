@@ -1,0 +1,4 @@
+sl/
+*.zip.extracted/
+build/shots/*.png
+node_modules/

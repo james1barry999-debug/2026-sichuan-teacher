@@ -1,0 +1,98 @@
+<!-- ===================== 三天后再来 · 擂台 ===================== -->
+<section class="station" id="arena">
+  <div class="arena glass">
+    <h2>⚔️ 三天后再来：随机抽 10 道，看看还记得多少</h2>
+    <p class="sub">从全部 41 道课堂真题里随机抽题（打乱顺序）。答错自动进错题本。老师说「三天后再回来还能自己讲出来」才算记住 —— 这里就是那个「三天后」。</p>
+    <div class="stat">
+      <div><b id="st-done">0</b><small>/ 6 站已通关</small></div>
+      <div><b id="st-answered">0</b><small>累计作答</small></div>
+      <div><b id="st-right">0</b><small>累计答对</small></div>
+      <div><b id="st-acc">—</b><small>正确率</small></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      <button class="btn o" id="arena-start">抽 10 题开始</button>
+      <button class="btn ghost" id="arena-reset">清空全部进度（重新学一遍）</button>
+    </div>
+    <div id="arena-box"></div>
+  </div>
+</section>
+
+<!-- ===================== 错题本 ===================== -->
+<section class="station" id="wrong">
+  <div class="arena glass">
+    <h2>📕 错题本</h2>
+    <p class="sub">在任何地方答错的题都会收在这里。重做一次做对，它就从这儿消失。考前只看这一页。</p>
+    <div id="wrong-box"><div class="empty">还没有错题 —— 去做题吧。</div></div>
+  </div>
+</section>
+
+<!-- ===================== 附录 ===================== -->
+<section class="station" id="appendix">
+  <div class="appx glass">
+    <h2>📎 附录 A · 本讲全部口诀（老师给的）</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>口诀</th><th>记什么</th></tr>
+      <tr><td>颜值态动人</td><td>加涅学习结果五类：言语信息 · 智慧技能 · 态度 · 动作技能 · 认知策略</td></tr>
+      <tr><td>心机所言，别念这题</td><td>加涅学习水平八级：信号 · 刺激反应 · 连锁 · 言语联想 · 辨别 · 概念 · 规则 · 问题解决</td></tr>
+      <tr><td>桑巴死板 / 苛曼不输加涅 / 健脾胃度 / 罗马人</td><td>四大流派代表人物</td></tr>
+      <tr><td>桑代克的猫 · 巴甫洛夫的狗 · 斯金纳的小白鼠 · 班杜拉的宝宝</td><td>行为主义四人的实验</td></tr>
+      <tr><td>桑老三创教心，一生一世，本心差</td><td>1903《教育心理学》；1913–1914 三卷本：人的本性 · 学习心理 · 个别差异</td></tr>
+      <tr><td>教心奠基创始父，动物呀！</td><td>桑代克地位：教心之父 / 奠基人 / 联结主义创始人 / 动物心理学开创者</td></tr>
+      <tr><td>要么先中性，要么和中性同时</td><td>条件反射建立顺序</td></tr>
+      <tr><td>分不清 / 分得清</td><td>泛化 / 分化（定义角度更稳：相同反应 / 不同反应）</td></tr>
+      <tr><td>先天？有语言？是动物？</td><td>本能 / 第二 / 第一信号系统三步判断</td></tr>
+    </table></div>
+
+    <h2 style="margin-top:22px">📎 附录 B · 全讲 41 道真题一览（按站）</h2>
+    <p class="sub">编号对应每站的题目；点编号跳转。</p>
+    <ol class="small">
+      <li><a href="#q-s1">Q01</a> 接受即机械、发现即意义（判断）→ 错</li>
+      <li><a href="#q-s1">Q02</a> 2023 上 小明听讲解理解食物链（判断）→ 错</li>
+      <li><a href="#q-s1">Q03</a> 乘法口诀不知关系 → 机械的接受</li>
+      <li><a href="#q-s1">Q04</a> 2020 下 有意义的接受学习 → D 听讲座</li>
+      <li><a href="#q-s1">Q05</a> 学习是可观察的行为变化（判断）→ 错</li>
+      <li><a href="#q-s1">Q06</a> 背唐诗不理解属机械（判断）→ 对</li>
+      <li><a href="#q-s1">Q07</a> 华生分接受/发现（判断）→ 错</li>
+      <li><a href="#q-s1">Q08</a> 属于学习现象 → 背诵唐诗</li>
+      <li><a href="#q-s1">Q09</a> 2024 下 阿杰与小狗 → D 语言和复杂认知</li>
+      <li><a href="#q-s1">Q10</a> 2024 上 红色博物馆热爱之情 → 态度</li>
+      <li><a href="#q-s1">Q11</a> 归类记单词 → 认知策略</li>
+      <li><a href="#q-s1">Q12</a> 学习体操动作 → 连锁学习</li>
+      <li><a href="#q-s1">Q13</a> 不知不觉会唱歌 → 内隐学习</li>
+      <li><a href="#q-s1">Q14</a> 奥苏贝尔有意义学习 → C 小素听讲理解</li>
+      <li><a href="#q-s1">Q15</a> 接受/发现表述正确 → A 接受可机械可有意义</li>
+      <li><a href="#q-s4">Q16</a> 准备律指知识/成熟准备（判断）→ 错</li>
+      <li><a href="#q-s4">Q17</a> 2014 下 预设问题 + 预习 → 准备律</li>
+      <li><a href="#q-s4">Q18</a> 2024 上 复习引导回忆旧知符合准备律（判断）→ 对</li>
+      <li><a href="#q-s4">Q19</a> 第一个较完整理论是桑代克联结说（判断）→ 对</li>
+      <li><a href="#q-s4">Q20</a> 动物盲目人有意识（判断）→ 对</li>
+      <li><a href="#q-s4">Q21</a> 准备律与（ ）一致 → 动机原理</li>
+      <li><a href="#q-s4">Q22</a> 2018 下 刘老师反馈表扬改正 → 效果律</li>
+      <li><a href="#q-s4">Q23</a> 2020 上 王老师鼓励感受乐趣 → 效果律</li>
+      <li><a href="#q-s4">Q24</a> 勾股定理不同类型 → 练习律</li>
+      <li><a href="#q-s4">Q25</a> 成绩好越愿学 → 效果律</li>
+      <li><a href="#q-s4">Q26</a> 三天不听耳生 → 练习律</li>
+      <li><a href="#q-s4">Q27</a> 蒙眼画线 3000 次 → C 不知道练习结果</li>
+      <li><a href="#q-s5a">Q28</a> 2017 下 建立条件反射错误做法 → C 先无条件</li>
+      <li><a href="#q-s5a">Q29</a> 铃声诱发唾液，铃声是 → 条件刺激</li>
+      <li><a href="#q-s5a">Q30</a> 菜香和口水 → 条件刺激、条件反射</li>
+      <li><a href="#q-s5a">Q31</a> 大扇贝曾致呕吐 → 条件刺激</li>
+      <li><a href="#q-s5a">Q32</a> 听说坐车就呕吐属操作性（判断）→ 错</li>
+      <li><a href="#q-s5a">Q33</a> 徐文长的驴 → 经典性条件作用</li>
+      <li><a href="#q-s5a">Q34</a> 进考场焦虑 → 高级条件作用</li>
+      <li><a href="#q-s5b">Q35</a> 数学课端坐英语课也端坐 → 泛化</li>
+      <li><a href="#q-s5b">Q36</a> 类似刺激也能诱发 → 泛化</li>
+      <li><a href="#q-s5b">Q37</a> 训练后仅对圆形反应 → 分化</li>
+      <li><a href="#q-s6">Q38</a> 操作性强调行为前强化（判断）→ 错</li>
+      <li><a href="#q-s6">Q39</a> 桑代克斯金纳都属操作性（判断）→ 对</li>
+      <li><a href="#q-s6">Q40</a> 经典与操作建立过程无差异（判断）→ 错</li>
+      <li><a href="#q-s6">Q41</a> 经典与操作实质相同（判断）→ 对</li>
+    </ol>
+
+    <h2 style="margin-top:22px">📎 附录 C · 这份资料怎么做出来的（可核验）</h2>
+    <p class="sub">素材：《心理学12》视频 02:42:16 的完整文字稿（441 段 / 45,541 字）、102 张唯一幻灯片 OCR、102 张幻灯片逐张视觉记录（含手写批注、颜色、结构）、40 帧开头细节记录。知识点清单 139 条 + 真题 41 道，逐条关键词审计通过（见仓库 <code class="tm">build/audit.py</code>）。所有讲解只改写老师课上说的内容，<b>不添加视频之外的考点</b>；老师明说「明天讲」的斯金纳、班杜拉、认知、建构、人本主义一律不编。「老师板书」栏的手写内容来自逐张读图，认不准的字已在读图记录中标注、此处不补猜。</p>
+    <p class="sub">设计：参考考生认可的「学习卡片」样式（深蓝 #1F3A5F + 橙 #E8752A、编号 / 类型标签 / 一句话说人话 / 关键词 / 记忆锚点 / 出题人怎么考 的固定字段），叠加 Apple 2026 Liquid Glass 的玻璃面板、连续圆角、语义色与深色模式；在它基础上加了「小镇地图」把知识点串成一幅画、卡片之间的承上启下、每题的老师推导、挖空复述、随机擂台与错题本。</p>
+    <footer class="foot">心理学12 · 学习小镇 ｜ 2026 下半年四川教师公招 · 教育心理学 ｜ 进度保存在本机浏览器（localStorage）</footer>
+  </div>
+</section>
+</div><!-- /wrap -->

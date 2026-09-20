@@ -1,0 +1,170 @@
+<script>
+(function(){
+  'use strict';
+  var KEY = 'xlx12-town-v1';
+  var state = load();
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+  state.passed = state.passed || {};
+  state.answers = state.answers || {};   // qid -> {right:bool, n:int}
+  state.wrong = state.wrong || {};       // qid -> true
+  state.total = state.total || 0; state.right = state.right || 0;
+
+  var $ = function(s, r){ return (r||document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+
+  function toast(msg){
+    var t = $('#toast'); t.textContent = msg; t.classList.add('on');
+    clearTimeout(toast._t); toast._t = setTimeout(function(){ t.classList.remove('on'); }, 1800);
+  }
+
+  /* ---------- theme / size ---------- */
+  var root = document.documentElement;
+  if (state.theme) root.setAttribute('data-theme', state.theme);
+  if (state.size === 'big') root.setAttribute('data-size', 'big');
+  $('#btn-theme').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var next = cur ? (cur === 'dark' ? 'light' : 'dark') : (sysDark ? 'light' : 'dark');
+    root.setAttribute('data-theme', next); state.theme = next; save();
+  });
+  $('#btn-size').addEventListener('click', function(){
+    var big = root.getAttribute('data-size') === 'big';
+    if (big){ root.removeAttribute('data-size'); state.size = ''; } else { root.setAttribute('data-size','big'); state.size='big'; }
+    save();
+  });
+
+  /* ---------- quiz engine ---------- */
+  var QUIZ_TPL = {}; // qid -> outerHTML of a clean quiz (for arena / wrong book)
+  $$('.quiz').forEach(function(q){ QUIZ_TPL[q.getAttribute('data-id')] = q.cloneNode(true); });
+
+  function wireQuiz(q, opts){
+    opts = opts || {};
+    var a = parseInt(q.getAttribute('data-a'), 10);
+    var qid = q.getAttribute('data-id');
+    var lis = $$('.q-opts li', q);
+    lis.forEach(function(li, i){
+      li.addEventListener('click', function(){
+        if (q.classList.contains('done')) return;
+        q.classList.add('done');
+        var ok = (i === a);
+        lis[a].classList.add('ok');
+        if (!ok) li.classList.add('bad');
+        q.classList.add(ok ? 'right' : 'wrong');
+        $('.q-res', q).textContent = ok ? '✓ 答对了' : '✗ 答错了 —— 看老师的推导';
+        // record
+        state.total++; if (ok) state.right++;
+        state.answers[qid] = {right: ok, n: ((state.answers[qid]||{}).n||0) + 1};
+        if (ok){ if (opts.fromWrong) { delete state.wrong[qid]; renderWrong(); } }
+        else { state.wrong[qid] = true; if (!opts.fromWrong) renderWrong(); }
+        save(); renderStats();
+        if (opts.onAnswer) opts.onAnswer(ok);
+      });
+    });
+    var again = $('.q-again', q);
+    if (again) again.addEventListener('click', function(){
+      q.classList.remove('done','right','wrong');
+      lis.forEach(function(li){ li.classList.remove('ok','bad'); });
+      $('.q-res', q).textContent = '';
+    });
+  }
+  $$('.quiz').forEach(function(q){ wireQuiz(q); });
+
+  function freshQuiz(qid, opts){
+    var q = QUIZ_TPL[qid].cloneNode(true);
+    q.classList.remove('done','right','wrong');
+    $$('.q-opts li', q).forEach(function(li){ li.classList.remove('ok','bad'); });
+    wireQuiz(q, opts);
+    return q;
+  }
+
+  /* ---------- checkpoints / progress ---------- */
+  var STATIONS = ['s1','s2','s3','s4','s5','s6'];
+  function renderProgress(){
+    var n = STATIONS.filter(function(s){ return state.passed[s]; }).length;
+    $('#pbar').style.width = (n/STATIONS.length*100) + '%';
+    $$('#navlinks a[data-st]').forEach(function(a){ a.classList.toggle('done', !!state.passed[a.getAttribute('data-st')]); });
+    $$('.checkpoint').forEach(function(c){
+      var s = c.getAttribute('data-st'); var on = !!state.passed[s];
+      c.classList.toggle('done', on);
+      $('.btn', c).textContent = on ? '已通关 ✓（点一下可撤销）' : '我能讲出来，通关 ✓';
+    });
+    $('#st-done').textContent = n;
+  }
+  $$('.checkpoint .btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      var s = b.getAttribute('data-pass');
+      state.passed[s] = !state.passed[s]; save(); renderProgress();
+      if (state.passed[s]){
+        var n = STATIONS.filter(function(x){ return state.passed[x]; }).length;
+        toast(n === 6 ? '🎉 全镇走完！去「合上书复述」检验一下' : '第 ' + s.slice(1) + ' 站通关，已走完 ' + n + ' / 6 站');
+      }
+    });
+  });
+
+  function renderStats(){
+    $('#st-answered').textContent = state.total;
+    $('#st-right').textContent = state.right;
+    $('#st-acc').textContent = state.total ? Math.round(state.right/state.total*100) + '%' : '—';
+  }
+
+  /* ---------- active nav on scroll ---------- */
+  var secs = $$('.station[id]');
+  var links = $$('#navlinks a');
+  function onScroll(){
+    var y = window.scrollY + 120, cur = null;
+    secs.forEach(function(s){ if (s.offsetTop <= y) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---------- cloze ---------- */
+  $$('.cz').forEach(function(c){ c.addEventListener('click', function(){ c.classList.toggle('show'); }); });
+  $('#cz-all').addEventListener('click', function(){ $$('.cz').forEach(function(c){ c.classList.add('show'); }); });
+  $('#cz-hide').addEventListener('click', function(){ $$('.cz').forEach(function(c){ c.classList.remove('show'); }); toast('已全部隐藏 —— 自己再讲一遍'); });
+
+  /* ---------- arena ---------- */
+  var ALL = Object.keys(QUIZ_TPL);
+  function shuffle(arr){ arr = arr.slice(); for (var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i]; arr[i]=arr[j]; arr[j]=t; } return arr; }
+  $('#arena-start').addEventListener('click', function(){
+    var box = $('#arena-box'); box.innerHTML = '';
+    var pick = shuffle(ALL).slice(0, 10), done = 0, right = 0;
+    var head = document.createElement('div'); head.className = 'q-h'; head.style.marginBottom = '10px';
+    head.innerHTML = '<span class="q-type">本轮 10 题</span><span class="q-src" id="arena-score">0 / 0</span>';
+    box.appendChild(head);
+    pick.forEach(function(qid, idx){
+      var q = freshQuiz(qid, {onAnswer:function(ok){ done++; if (ok) right++; $('#arena-score').textContent = right + ' / ' + done;
+        if (done === pick.length) toast(right === pick.length ? '🏆 全对！这一讲已经在你脑子里了' : '本轮 ' + right + ' / ' + pick.length + '，错题已进错题本'); }});
+      $('.q-again', q).remove();
+      var lab = document.createElement('span'); lab.className='q-lv'; lab.textContent = '第 ' + (idx+1) + ' 题';
+      $('.q-h', q).appendChild(lab);
+      box.appendChild(q);
+    });
+    box.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  $('#arena-reset').addEventListener('click', function(){
+    if (!confirm('清空全部进度（通关、作答记录、错题本）？')) return;
+    var theme = state.theme, size = state.size;
+    state = {passed:{}, answers:{}, wrong:{}, total:0, right:0, theme:theme, size:size}; save();
+    renderProgress(); renderStats(); renderWrong(); $('#arena-box').innerHTML = '';
+    $$('.quiz').forEach(function(q){ var b = $('.q-again', q); if (b && q.classList.contains('done')) b.click(); });
+    toast('已清空，从第 1 站重新开始');
+  });
+
+  /* ---------- wrong book ---------- */
+  function renderWrong(){
+    var box = $('#wrong-box'); box.innerHTML = '';
+    var ids = Object.keys(state.wrong);
+    if (!ids.length){ box.innerHTML = '<div class="empty">还没有错题 —— 去做题吧。</div>'; return; }
+    ids.forEach(function(qid){
+      var q = freshQuiz(qid, {fromWrong:true, onAnswer:function(ok){ if (ok) toast('做对了，已从错题本移出'); }});
+      $('.q-again', q).remove();
+      box.appendChild(q);
+    });
+  }
+
+  renderProgress(); renderStats(); renderWrong();
+})();
+</script>
+</body>
+</html>
